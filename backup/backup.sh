@@ -11,18 +11,18 @@ DestinationPath=$2
 ArchiveName=$3
 
 # date du jour
-backupdate=$(date +%d)
+backupDate=$(date +%d)
 # changement de nom pour la sauvegarde mensuelle
-if [ $backupdate = 01 ]
+if [ $backupDate = 01 ]
 then
-	backupdate=$(date +%m-%d)
+	backupDate=$(date +%m-%d)
 else
 	#jour de la semaine
-	backupdate=$(date +%a)
+	backupDate=$(date +%a)
 fi
 # si le fichier existe deja on efface
-rm $DestinationPath/$ArchiveName-$backupdate.tar.bz2
+rm $DestinationPath/$ArchiveName-$backupDate.tar.bz2
 # tar -cjf /destination/fichier.tar.bz2 /source1 /source2 /sourceN
 # créé une archive bz2
 # sauvegarde de /home
-/bin/tar -cjf $DestinationPath/$ArchiveName-$backupdate.tar.bz2 $DirectoryToSave
+/bin/tar -cjf $DestinationPath/$ArchiveName-$backupDate.tar.bz2 $DirectoryToSave
